@@ -1,0 +1,42 @@
+.burger-list {
+  margin: 0 auto;
+   }
+
+.burger-container {
+width: 100%;
+
+} 
+
+input.new-item:focus {
+  outline: none;
+}
+ .burger-item {
+  /* background-color: brown; */
+  /* color: white; */
+  /* padding: 10px;
+  height: 40px; */
+ 
+}
+/*
+.todo-container {
+  color: white;
+} */
+
+.list-group-item > button.delete,
+.list-group-item > button.complete {
+  /* float: right;
+  height: 25px;
+  margin-left: 5px;
+  padding-bottom: 10px;
+  margin-bottom: 20px; */
+  /* z-index: 1000; */
+  }
+
+.edit {
+  /* width: 100%; */
+}
+.delete{
+  /* width: 100px;
+  height: 50px;
+  padding: 50px; */
+}
