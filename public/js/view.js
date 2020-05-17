@@ -37,20 +37,20 @@ var burgers = [];    // Our initial burgers array
   function editBurger() {
     var currentBurger = $(this).data("burger");
     $(this).children().hide();
-    $(this).children("input.edit").val(currentBurger.text);
+    $(this).children("input.edit").val(currentBurger.burger_name);
     $(this).children("input.edit").show();
     $(this).children("input.edit").focus();      }
   // Toggles complete status
   function toggleComplete(event) {
     event.stopPropagation();
     var burger = $(this).parent().data("burger");
-    burger.complete = !burger.complete;
+    burger.devoured = !burger.devoured;
     updateBurger(burger);      }
   // This function starts updating a burger in the database if a user hits the "Enter Key"  // While in edit mode
   function finishEdit(event) {
     var updatedBurger = $(this).data("burger");
     if (event.which === 13) {
-      updatedBurger.text = $(this).children("input").val().trim();
+      updatedBurger.burger_name = $(this).children("input").val().trim();
       $(this).blur();
       updateBurger(updatedBurger);        }       }
  function updateBurger(burger) {    // This function updates a burger in our database
@@ -64,33 +64,33 @@ var burgers = [];    // Our initial burgers array
     var currentBurger = $(this).data("burger");
     if (currentBurger) {
       $(this).children().hide();
-      $(this).children("input.edit").val(currentBurger.text);
+      $(this).children("input.edit").val(currentBurger.burger_name);
       $(this).children("span").show();
       $(this).children("button").show();        }      }
  function createNewRow(burger) {   // This function constructs a burger-item row
     var $newInputRow = $(
       [
         "<li class='list-group-item burger-item'>",
-        "<span>",
-        burger.text,
+        "<span class='burgerList'>",
+        burger.burger_name,
         "</span>",
         "<input type='text' class='edit' style='display: none;'>",
-        "<button class='delete btn btn-danger'>x</button>",
-        "<button class='complete btn btn-primary'>✓</button>",
+        "<button class='complete btn btn-primary'>✓ - Mark</button>",
+        "<button class='delete btn btn-danger'>Delete - X</button>",
         "</li>"
       ].join("")         );
     $newInputRow.find("button.delete").data("id", burger.id);
     $newInputRow.find("input.edit").css("display", "none");
     $newInputRow.data("burger", burger);
-    if (burger.complete) {
+    if (burger.devoured) {
 $newInputRow.find("span").css("text-decoration", "line-through");
     }  return $newInputRow;   }
 // This function inserts a new burger into our database and then updates the view
   function insertBurger(event) {
     event.preventDefault();
     var burger = {
-      text: $newItemInput.val().trim(),
-      complete: false
+      burger_name: $newItemInput.val().trim(),
+      devoured: false
     };
     $.post("/api/burgers", burger, getBurgers);
     $newItemInput.val("");   }   });

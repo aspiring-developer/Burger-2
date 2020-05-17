@@ -12,10 +12,10 @@ module.exports = function(app) {
 // POST route for saving a new burger. You can create a burger using the data on req.body
   app.post("/api/burgers", function(req, res) {
 console.log(req.body);
-    // create takes an argument of an object describing the item we want to insert into our table. In this case we just pass in an object with a text and complete property (req.body)
+    // create takes an argument of an object describing the item we want to insert into our table. In this case we just pass in an object with a burger_name and devoured property (req.body)
     db.Burger.create({
-      text: req.body.text,
-      complete: req.body.complete
+      burger_name: req.body.burger_name,
+      devoured: req.body.devoured
     }).then(function(dbBurger) {
       // We have access to the new burger as an argument inside of the callback function
       console.log(dbBurger)
@@ -34,8 +34,8 @@ db.Burger.destroy({
   app.put("/api/burgers", function(req, res) {
 // Update takes in an object describing the properties we want to update, and we use where to describe which objects we want to update
     db.Burger.update({
-      text: req.body.text,
-      complete: req.body.complete
+      burger_name: req.body.burger_name,
+      devoured: req.body.devoured
     }, {
       where: {
         id: req.body.id

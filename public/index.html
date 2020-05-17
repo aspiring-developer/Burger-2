@@ -14,16 +14,16 @@
 </head>
 
 <body>
-  <div class="container m-0 p-4 mx-auto mainWrapper">
-    <div class="row headerRow text-center">
+  <div class="container mx-auto mainWrapper">
+    <div class="row headerRow mx-auto text-center">
       <div class="col headerColumn">
-        <h1>Eat-Da-Burger</h1>
+        <h1>Manipulate Your Burger</h1>
         <p> virtually create, select and modify your burgers! </p>
       </div> <!-- .headerColumn ends -->
     </div> <!-- .headerRow ends -->
 
     <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
-    <div class="row d-flex justify-content-center align-items-center">
+    <div class="row p-4 d-flex justify-content-center align-items-center">
 
       <div class="col text-center my-4" id="burgerImageDiv">
         <h5>Yummy Burger!!!</h5>
@@ -31,18 +31,18 @@
         <img src="https://user-images.githubusercontent.com/61030935/82099698-f7558980-96d5-11ea-9d0d-75cde272c2c9.jpg" alt="Chicken Sandwich Image" id="burgerImage" style="height: 200px; width: 300px" />
       </div>
 
-      <div class="col-sm-12 col-md-6 p-2 newBurgerField">
+      <div class="col-sm-12 col-md-6 newBurgerField">
         <h5>Add or Delete a Burger in the List. </h5>
         <ul class="list-group burger-list">
           <li class="list-group-item new-item">
             <form id="burger-form">
               <div class="container">
-                <div class="row">
-                  <div class="col-10">
+                <div class="row text-center mt-2">
+                  <div class="col-8">
                     <input class="new-item form-control" placeholder="type a burger name to add" type="text" />
                   </div>
-                  <div class="col-2">
-                    <button type="submit" class="btn btn-success">Add</button>
+                  <div class="col-4">
+                    <button type="submit" class="btn addBtn">Add To List</button>
                   </div>
                 </div>
               </div>
@@ -54,6 +54,10 @@
       </div>
     </div> <!-- .mainSectionRow ends -->
     <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+
+    <div id="footerDiv">
+      <p class="text-center">Burger App: Express, Sequelize, MySQL with NodeJS &bull; Shiva Sharma &bull; 2020</p>
+    </div>
 
   </div> <!-- $$$$$$$$$$ .mainWrapper ends $$$$$$$$$$ -->
   <!-- This block below is custom for bootstrap and other use -->
