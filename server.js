@@ -15,3 +15,16 @@ db.sequelize.sync().then(function () {
     console.log("App listening on PORT http://localhost:" + PORT);
   });
 });
+
+
+const mysql = require("mysql"); 
+// creating connection to mysql server // adding Heroku connection information after subscribing to Heroku host 
+// ####### ADDED BLOCK BELOW #########        
+let connection;        
+if (process.env.JAWSDB_URL) {          
+  connection = mysql.createConnection(process.env.JAWSDB_URL);        
+} else {
+   // ####### ADDED BLOCK ABOVE ######### 
+   connection = mysql.createConnection({  host: "localhost",  port: 3306,  user: "root",  password: "Stanopal001$",  database: "burgers_db" 
+  });    
+}; 
