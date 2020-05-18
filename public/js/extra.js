@@ -2,7 +2,7 @@ $(document).ready(function () {
   // Added document.ready required jquery wrapper function above!
 
   let imageButtonEl = document.getElementById("addBurgerBtn");
-  let imageContainerEl = document.getElementById("burgerImageDiv");
+  let imageContainerEl = document.getElementById("burgerImage");
 
   imageButtonEl.addEventListener("click", displayImage);
 
